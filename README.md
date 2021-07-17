@@ -6,5 +6,6 @@ ROS powered Autonomous Mobile Robot
 <br>
 <p>For the Platform I'm using the Wild Thumper 6WD (75:1) with Quadrature Encoders</p>
 <p>For the Motor Controller I'm using Dagu T'REX motor controller</p>
-<p>I'm Using an Arduino Spider Controller communicating via I2C with the T'REX, and Via Serial with the Raspberry Pi </p>
+<p>I'm Using an Arduino Spider Controller(T_REX_I2C_praetorian) communicating via I2C with the T'REX, and Via Serial with the Raspberry Pi </p>
+
 <p>The raspberry Pi is running ROS and acts as the "Brain" of the whole operation </p>
