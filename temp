@@ -14,24 +14,109 @@
   <link name="body">
     <visual>
       <geometry>
-        <box size="0.12 0.08 0.385"/>
+        <box size="0.385 0.12 0.08"/>
       </geometry>
+          <material name="black"/>
     </visual>
   </link>
   
   <link name="right_fwheel">
-    <visual>
-      <geometry>
-        <box size="0.6 0.1 0.2"/>
-      </geometry>
-      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
-    </visual>
+      <visual>
+          <origin xyz="0 0 0" rpy="1.5 0 0"/>
+          <geometry>
+              <cylinder radius="0.065" length="0.06"/>
+          </geometry>
+          <material name="black"/>
+      </visual>
   </link>
 
-  <joint name="body_to_right_fwheel" type="fixed">
+  <joint name="body_to_right_fwheel" type="continuous">
     <parent link="body"/>
     <child link="right_fwheel"/>
-    <origin xyz="0 -0.22 0.25"/>
+    <origin xyz="0.16 -0.1 -0.01"/>
   </joint>
+
+  <link name="right_mwheel">
+      <visual>
+          <origin xyz="0 0 0" rpy="1.5 0 0"/>
+          <geometry>
+              <cylinder radius="0.065" length="0.06"/>
+          </geometry>
+          <material name="black"/>
+      </visual>
+  </link>
+
+  <joint name="body_to_right_mwheel" type="continuous">
+    <parent link="body"/>
+    <child link="right_mwheel"/>
+    <origin xyz="0 -0.1 -0.01"/>
+  </joint>
+
+  <link name="right_bwheel">
+      <visual>
+          <origin xyz="0 0 0" rpy="1.5 0 0"/>
+          <geometry>
+              <cylinder radius="0.065" length="0.06"/>
+          </geometry>
+          <material name="black"/>
+      </visual>
+  </link>
+
+  <joint name="body_to_right_bwheel" type="continuous">
+    <parent link="body"/>
+    <child link="right_bwheel"/>
+    <origin xyz="-0.16 -0.1 -0.01"/>
+  </joint>
+
+
+
+  <link name="left_fwheel">
+      <visual>
+          <origin xyz="0 0 0" rpy="-1.5 0 0"/>
+          <geometry>
+              <cylinder radius="0.065" length="0.06"/>
+          </geometry>
+          <material name="black"/>
+      </visual>
+  </link>
+
+  <joint name="body_to_left_fwheel" type="continuous">
+    <parent link="body"/>
+    <child link="left_fwheel"/>
+    <origin xyz="0.16 0.1 -0.01"/>
+  </joint>
+
+  <link name="left_mwheel">
+      <visual>
+          <origin xyz="0 0 0" rpy="-1.5 0 0"/>
+          <geometry>
+              <cylinder radius="0.065" length="0.06"/>
+          </geometry>
+          <material name="black"/>
+      </visual>
+  </link>
+
+  <joint name="body_to_left_mwheel" type="continuous">
+    <parent link="body"/>
+    <child link="left_mwheel"/>
+    <origin xyz="0 0.1 -0.01"/>
+  </joint>
+
+  <link name="left_bwheel">
+      <visual>
+          <origin xyz="0 0 0" rpy="-1.5 0 0"/>
+          <geometry>
+              <cylinder radius="0.065" length="0.06"/>
+          </geometry>
+          <material name="black"/>
+      </visual>
+  </link>
+
+  <joint name="body_to_left_bwheel" type="continuous">
+    <parent link="body"/>
+    <child link="left_bwheel"/>
+    <origin xyz="-0.16 0.1 -0.01"/>
+  </joint>
+
   
 </robot>
