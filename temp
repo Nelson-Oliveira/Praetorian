@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot name="Praetorian">
+
+  <material name="red">
+    <color rgba="0.8 0 0 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <link name="body">
+    <visual>
+      <geometry>
+        <box size="0.12 0.08 0.385"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <link name="right_fwheel">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+    </visual>
+  </link>
+
+  <joint name="body_to_right_fwheel" type="fixed">
+    <parent link="body"/>
+    <child link="right_fwheel"/>
+    <origin xyz="0 -0.22 0.25"/>
+  </joint>
+  
+</robot>
