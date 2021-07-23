@@ -91,6 +91,9 @@ float encoder1Prev;
 double speed_act_left = 0;                    //Actual speed for left wheel in m/s
 double speed_act_right = 0;                    //Command speed for left wheel in m/s 
 
+int ispeed_act_left;
+int ispeed_act_right;
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void setup()
@@ -260,8 +263,10 @@ void loop()
     encoder0Diff = lmenc - encoder0Prev; // Get difference between ticks to compute speed
     encoder1Diff = rmenc - encoder1Prev;
     
-    speed_act_left = encoder0Diff/39.65;                    
+    speed_act_left = encoder0Diff/39.65;  
+    ispeed_act_left = abs(speed_act_left*1000);                    
     speed_act_right = encoder1Diff/39.65; 
+    ispeed_act_right = abs(speed_act_right*1000); 
   
     encoder0Error = (demand_speed_left*39.65)-encoder0Diff; // 3965 ticks in 1m = 39.65 ticks in 10ms, due to the 10 millis loop
     encoder1Error = (demand_speed_right*39.65)-encoder1Diff;
@@ -276,9 +281,9 @@ void loop()
     right_input = encoder1Diff;
     
     leftPID.Compute();
-    lmspeed = (int) left_output;
+    lmspeed = abs(left_output);
     rightPID.Compute();
-    rmspeed = (int) right_output;
+    rmspeed = abs(right_output);
 //    Serial.print(lmenc);
 //    Serial.print(",");
 //    Serial.println(rmenc);

@@ -38,11 +38,11 @@ void I2Cstatus()
   datapack[22]=highByte(deltz);                  // Z-axis impact data   high byte
   datapack[23]= lowByte(deltz);                  // Z-axis impact data   low  byte
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  datapack[24]=speed_act_left;                  // 
-  datapack[25]=speed_act_left;                  // 
+  datapack[24]=highByte(ispeed_act_left);                  // 
+  datapack[25]= lowByte(ispeed_act_left);                  // 
 
-  datapack[26]=speed_act_right;                  // 
-  datapack[27]=speed_act_right;                  // 
+  datapack[26]=highByte(ispeed_act_right);                  // 
+  datapack[27]= lowByte(ispeed_act_right);                  // 
 
 Wire.write(datapack,28);                       // transmit data packet of 24 bytes
   errorflag=0;                                   // reset erroflag once error has been reported to I²C Master

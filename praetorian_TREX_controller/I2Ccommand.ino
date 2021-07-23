@@ -4,12 +4,11 @@ void I2Ccommand(int recvflag)
 {
   byte b;                                                                      // byte from buffer
   int i;                                                                       // integer from buffer
-  float f;
   
   do                                                                           // check for start byte
   {
     b=Wire.read();                                                             // read a byte from the buffer
-    if(b!=startbyte || recvflag!=29)errorflag = errorflag | 1;                 // if byte does not equal startbyte or Master request incorrect number of bytes then generate error
+    if(b!=startbyte || recvflag!=19)errorflag = errorflag | 1;                 // if byte does not equal startbyte or Master request incorrect number of bytes then generate error
   } while (errorflag>0 && Wire.available()>0);                                 // if errorflag>0 then empty buffer of corrupt data
   
   if(errorflag>0)                                                              // corrupt data received 
@@ -88,26 +87,11 @@ void I2Ccommand(int recvflag)
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-  f=Wire.read()*256+Wire.read();
-  if(i>-9999999 && i<9999999)
-  {
-    demandx=f;                                                             // 
-  }
-  else
-  {
-    
-  }
+  i=Wire.read()*256+Wire.read();
+  demandx=i/1000; // 
 
-
-  f=Wire.read()*256+Wire.read();
-  if(i>-9999999 && i<9999999)
-  {
-    demandz=f;                                                             // 
-  }
-  else
-  {
-    
-  }
+  i=Wire.read()*256+Wire.read();
+  demandz=i/1000;
 
 /////////////////////////////////////////////////////////////////////////////////////
   
