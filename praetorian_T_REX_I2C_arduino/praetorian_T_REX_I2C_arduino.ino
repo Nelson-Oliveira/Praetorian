@@ -58,7 +58,8 @@ SharpIR mySensor = SharpIR(IRPin, model);
 
 ////////////////////*************** TEST Drive
 
-
+int idemandx;
+int idemandz;
 
 float demandx=0;
 float demandz=0;
@@ -67,7 +68,9 @@ float demandz=0;
 
 void cmd_vel_cb( const geometry_msgs::Twist& twist){
   demandx = twist.linear.x;
+  idemandx = abs(demandx*1000);
   demandz = twist.angular.z;
+  idemandz = abs(demandz*1000);
 }
 
 
@@ -126,7 +129,7 @@ void loop()
 
   
                                                      // send data packet to T'REX controller 
-  MasterSend(startbyte,2,lmspeed,lmbrake,rmspeed,rmbrake,sv[0],sv[1],sv[2],sv[3],sv[4],sv[5],devibrate,sensitivity,lowbat,demandx,demandz,i2caddr,i2cfreq);
+  MasterSend(startbyte,2,lmspeed,lmbrake,rmspeed,rmbrake,devibrate,sensitivity,lowbat,idemandx,idemandz,i2caddr,i2cfreq);
   delay(50);
   MasterReceive();                                   // receive data packet from T'REX controller
   delay(50);
@@ -155,28 +158,6 @@ void loop()
  
   nh.spinOnce();
 
-
-  
-/*
-  //=================================================== Code to test motors and sweep servos =============================================  
-  lmspeed+=ldir;
-  if(lmspeed>240 or lmspeed<-240) ldir=-ldir;        // increase / decrease left motor speed and direction (negative values = reverse direction)
-  
-  rmspeed+=rdir;
-  if(rmspeed>240 or rmspeed<-240) rdir=-rdir;        // increase / decrease left motor speed and direction (negative values = reverse direction)
-  
-  lmbrake=(abs(lmspeed)>235);                        // test left  motor brake 
-  rmbrake=(abs(rmspeed)>235);                        // test right motor brake 
-  
-  for(byte i=0;i<6;i++)                              // sweep servos
-  {
-    if(sv[i]!=0)                                     // a value of 0 indicates no servo attached
-    {
-      sv[i]+=sd[i];                                  // update servo position to create sweeping motion
-      if(sv[i]>2000 || sv[i]<1000) sd[i]=-sd[i];     // reverse direction of servo if limit reached
-    }
-  }
-*/  
 }
 
 ////////////////////////////////////////////////*************************************

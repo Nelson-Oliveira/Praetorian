@@ -84,12 +84,15 @@ void MasterReceive()
   Serial.print("Z-delta:\t\t");
   Serial.println(i);                                              // T'REX Z-delta
   Serial.print("\r\n\n\n");
+
+  i=Wire.read()*256+Wire.read();
+  Serial.print("Act Speed Left:\t\t");
+  Serial.println(i); 
+  speed_act_left = i/1000;                                             
+  
+  i=Wire.read()*256+Wire.read();
+  Serial.print("Act Speed Right:\t\t");
+  Serial.println(i); 
+  speed_act_right = i/1000; 
   
 }
-  
-  
-  
-  
-  
-  
-  

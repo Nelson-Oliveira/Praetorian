@@ -1,4 +1,4 @@
-void MasterSend(byte sbyte, byte pfreq, int lspeed, byte lbrake, int rspeed, byte rbrake, int sv0, int sv1, int sv2, int sv3, int sv4, int sv5, byte dev,int sens,int lowbat, float demandx, float demandz, byte i2caddr,byte i2cfreq)
+void MasterSend(byte sbyte, byte pfreq, int lspeed, byte lbrake, int rspeed, byte rbrake, byte dev,int sens,int lowbat, int idemandx, int idemandz, byte i2caddr,byte i2cfreq)
 {
   Wire.beginTransmission(I2Caddress); // transmit data to 7
   Wire.write(startbyte);              // start byte
@@ -12,6 +12,7 @@ void MasterSend(byte sbyte, byte pfreq, int lspeed, byte lbrake, int rspeed, byt
   Wire.write( lowByte(rspeed));       // LSB right motor speed
   Wire.write(rbrake);                 // right motor brake
   
+ /* 
   Wire.write(highByte(sv0));          // MSB servo 0
   Wire.write( lowByte(sv0));          // LSB servo 0
   
@@ -29,6 +30,7 @@ void MasterSend(byte sbyte, byte pfreq, int lspeed, byte lbrake, int rspeed, byt
   
   Wire.write(highByte(sv5));          // MSB servo 5
   Wire.write( lowByte(sv5));          // LSB servo 5
+  */
   
   Wire.write(dev);                    // devibrate
   Wire.write(highByte(sens));         // MSB impact sensitivity
@@ -38,11 +40,11 @@ void MasterSend(byte sbyte, byte pfreq, int lspeed, byte lbrake, int rspeed, byt
   Wire.write( lowByte(lowbat));       // LSB low battery voltage
 
   ///////////////////////////////////////////////////////////////////////////////////////////
-  Wire.write((byte) demandx);       // ((byte) 0x00)
-  Wire.write((byte) demandx);       // 
+  Wire.write(highByte(idemandx));       // 
+  Wire.write(lowByte(idemandx));       // 
   
-  Wire.write((byte) demandz);       // 
-  Wire.write((byte) demandz);       // 
+  Wire.write(highByte(idemandz));       // 
+  Wire.write(lowByte(idemandz));       // 
   ///////////////////////////////////////////////////////////////////////////////////////////
   
   Wire.write(i2caddr);                // I2C slave address for T'REX controller
