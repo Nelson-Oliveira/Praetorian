@@ -15,12 +15,12 @@ ROS powered Autonomous Mobile Robot
 
 <h3>*** V0.1 ***</h3>
 
-<h4>Changelog</h4>
+<h3>Changelog</h4>
 
 <p>-- Added Front and Back Sharp IR sensors</p>
 <p>-- Added Front and Back HC-SR04 Sonar sensors</p>
 
-<h4>Tests</h4>
+<h3>Tests</h3>
 
 <p><b>- Sharp IR sensors</b></p> 
 <p>-- Both Sensors Tested:</p>
@@ -34,7 +34,7 @@ ROS powered Autonomous Mobile Robot
 <p>--- Printing to serial - Tested and Working</p>
 <p>--- ROS - Not Tested</p>
 
-<h4>Notes</h4>
+<h3>Notes</h3>
 
 <p><b>- HC-SR04</b></p> 
 <p>-- Due to 30° angle it detects the floor at around 62cm</p>
