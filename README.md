@@ -13,12 +13,13 @@ ROS powered Autonomous Mobile Robot
 
 ---------------------------------------------------------------------------------------------
 
-<h3>*** V0.1 ***</h3>
+<h3>*** V0.2 ***</h3>
 
 <h3>Changelog</h4>
 
 <p>-- Added Front and Back Sharp IR sensors</p>
 <p>-- Added Front and Back HC-SR04 Sonar sensors</p>
+<p>-- Added Turret</p>
 
 <h3>Tests</h3>
 
@@ -33,6 +34,9 @@ ROS powered Autonomous Mobile Robot
 <p>--- Distance - Tested and working but needs more testing</p>
 <p>--- Printing to serial - Tested and Working</p>
 <p>--- ROS - Not Tested</p>
+
+<p><b>- Turret</b></p> 
+<p>None</p>
 
 <h3>Notes</h3>
 
@@ -49,3 +53,7 @@ ROS powered Autonomous Mobile Robot
 <p>--- I2C communication</p>
 <p>--- PID</p>
 <p>--- More to add</p>
+
+<p><b>- Turret</b></p> 
+<p>-- Added the RC still no ROS added</p>
+<p>-- The RC still needs a "filter" not to be constantly updating the position</p>
