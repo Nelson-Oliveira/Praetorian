@@ -8,6 +8,9 @@
 */
 
 
+////////////////////////////////////////////////////////////////// Turret
+
+#include <Servo.h>
 
 ////////////////////////////////////////////////////////////////// Sharp IR sensor
 
@@ -159,6 +162,21 @@ Ultrasonic ultrasonicF(pin_triggerF, pin_echoF);
 Ultrasonic ultrasonicB(pin_triggerB, pin_echoB);
 
 
+////////////////////////////////////////////////////////////////// Turret
+
+Servo pan;  // create servo object to control a servo
+Servo tilt;  // create servo object to control a servo
+
+//int rcpan = 0;  // analog pin used to connect the potentiometer  potpin
+//int rctilt = 0;  // analog pin used to connect the potentiometer  potpin2
+
+int channel0;
+int channel1;
+
+int valpan;    // variable to read the value from the analog pin
+int valtilt;
+
+
 
 
 void setup()
@@ -175,6 +193,19 @@ void setup()
 
 
 ////////////////////////////////////////////////////////******************
+
+
+////////////////////////////////////////////////////////////////// Turret
+
+  pan.attach(13);  // attaches the servo on pin 9 to the servo object
+  tilt.attach(12);  // attaches the servo on pin 9 to the servo object
+
+      //Define the input Pin for the Receiver
+  pinMode(10, INPUT);
+  pinMode(11, INPUT);
+  Serial.begin(9600);     //Serial comunication for later monitoring of channel signal value
+
+
 
 ////////////////////////////////////////////////////////////////// ROS SharpIR
   
@@ -226,6 +257,12 @@ void loop()
   delay(50);
   MasterReceive();                                   // receive data packet from T'REX controller
   delay(50);
+
+////////////////////////////////////////////////////////////////// Turret
+
+  Turret();
+
+
 
 ////////////////////////////////////////////////////////////////// SharpIR
   Fdistance_cm = frontIR.distance();
