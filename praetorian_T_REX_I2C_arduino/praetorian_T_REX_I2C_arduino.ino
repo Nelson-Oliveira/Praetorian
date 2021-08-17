@@ -1,6 +1,6 @@
 /*
   :PROJECT PRAETORIAN
-  :Version 0.1
+  :Version 0.2.1
   :Author: Nelson Oliveira
   :Email: nfp.oliveira@gmail.com
   :Date: 
@@ -176,7 +176,8 @@ int channel1;
 int valpan;    // variable to read the value from the analog pin
 int valtilt;
 
-
+int valpanprev = 0;
+int valtiltprev = 0;
 
 
 void setup()
