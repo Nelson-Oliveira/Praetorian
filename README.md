@@ -13,7 +13,7 @@ ROS powered Autonomous Mobile Robot
 
 ---------------------------------------------------------------------------------------------
 
-<h3>*** V0.2 ***</h3>
+<h3>*** V0.2.1 ***</h3>
 
 <h3>Changelog</h4>
 
@@ -58,4 +58,4 @@ ROS powered Autonomous Mobile Robot
 <p><b>- Turret</b></p> 
 <p>-- Added the RC still no ROS added</p>
 <p>-- Added a "filter" to the RC code not to be constantly updating the position</p>
-<p>-- The response time is too slow, need to see why</p>
+<p>-- The response time is too slow, need to see why probably too many delays in the loop</p>
