@@ -20,6 +20,7 @@ ROS powered Autonomous Mobile Robot
 <p>-- Added Front and Back Sharp IR sensors</p>
 <p>-- Added Front and Back HC-SR04 Sonar sensors</p>
 <p>-- Added Turret</p>
+<p>-- Added a "filter" to the Turret RC code not to be constantly updating the position</p>
 
 <h3>Tests</h3>
 
@@ -56,4 +57,5 @@ ROS powered Autonomous Mobile Robot
 
 <p><b>- Turret</b></p> 
 <p>-- Added the RC still no ROS added</p>
-<p>-- The RC still needs a "filter" not to be constantly updating the position</p>
+<p>-- Added a "filter" to the RC code not to be constantly updating the position</p>
+<p>-- The response time is too slow, need to see why</p>
